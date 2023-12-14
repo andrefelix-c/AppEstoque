@@ -1,0 +1,12 @@
+/* App.css */
+
+.custom-btn {
+    border: none;
+    background-color: transparent;
+    color: black;
+  }
+  .custom-btn:hover {
+    background-color: #f5f5f5; /* Adicionando uma cor de fundo suave ao passar o mouse (opcional) */
+    color: black;
+  }
+  

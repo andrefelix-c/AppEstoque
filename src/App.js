@@ -1,23 +1,30 @@
-import logo from './logo.svg';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
+import {useState} from 'react';
+import MenuNavBar from './components/navbar';
+import ListaProdutos from './pages/lista_produtos';
+import ListaMovimentacao from './pages/lista_movimentacoes';
+import ListaFornecedores from './pages/lista_fornecedores';
+
 
 function App() {
+
+  const [page, setPage] = useState('Produtos')
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <MenuNavBar changePage={setPage}/>
+      <div>
+      {
+        page === 'Produtos' ? (
+          <ListaProdutos/>
+        ) : page === 'Movimentação' ? (
+            <ListaMovimentacao/>
+          ) : (
+            <ListaFornecedores/>
+          )
+      }
+      </div>
     </div>
   );
 }
